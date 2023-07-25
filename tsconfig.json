@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./src",
+    "outDir": "./dist",
+    "paths": {
+      "*": [
+        "./node_modules/*",
+        "./src/*"
+      ]
+    }
+  }
+}
