@@ -4,8 +4,9 @@
   "description": "Node.js server application for the REAS API",
   "main": "main.ts",
   "scripts": {
-    "start": "nest start",
-    "dev": "nest start --watch",
+    "start": "node dist/main.js",
+    "build": "rimraf dist && tsc -p tsconfig.build.json",
+    "dev": "ts-node-dev --transpile-only --ignore-watch node_modules src/main.ts",
     "test": "jest"
   },
   "jest": {
