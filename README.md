@@ -1,4 +1,4 @@
-# REAS API
+# REST API
 
 This is a Node.js server application for the REAS API. It provides RESTful endpoints to manage and access data.
 
