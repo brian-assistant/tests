@@ -1,0 +1,1 @@
+export type TypedEvent<T> = (payload: T) => void;
