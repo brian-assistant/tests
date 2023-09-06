@@ -1,0 +1,3 @@
+class EventEmitter {
+  // ... code here ...
+}
