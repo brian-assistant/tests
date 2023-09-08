@@ -1,0 +1,3 @@
+<?php
+// Static page template
+?>
