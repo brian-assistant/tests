@@ -2,9 +2,11 @@
 
 export class Logger {
   private transport: string;
+  private cloudwatch: AWS.CloudWatchLogs;
 
   constructor(transport = 'console') {
     this.transport = transport;
+    this.cloudwatch = new AWS.CloudWatchLogs();
   }
 
   public error(message: string): void {
@@ -28,9 +30,27 @@ export class Logger {
 
     if (this.transport === 'console') {
       console.log(logMessage);
+    } else if (this.transport === 'aws') {
+      // Send log message to AWS CloudWatch Logs
+      const params = {
+        logGroupName: '<LOG_GROUP_NAME>',
+        logStreamName: '<LOG_STREAM_NAME>',
+        logEvents: [{
+          message: logMessage,
+          timestamp: Date.now()
+        }]
+      };
+
+      this.cloudwatch.putLogEvents(params, (err, data) => {
+        if (err) {
+          console.error(err);
+        } else {
+          console.log(data);
+        }
+      });
     } else if (this.transport === 'file') {
-      // Code to write log message to file
-      // Use appropriate file system library or API to write the log message
+      // Write log message to a file
+      fs.appendFileSync('<LOG_FILE_PATH>', logMessage + '\n');
     }
   }
 }
