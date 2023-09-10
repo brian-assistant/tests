@@ -1,25 +1,23 @@
-# REST API
+### Logger Service Architecture
 
-This is a Node.js server application for the REAS API. It provides RESTful endpoints to manage and access data.
+To develop a secure logger service with the ability to save logs to AWS and a file, I would propose the following architecture:
 
-**Technologies**
+1. **Logger Service API**:
 
-- Node.js
-- Nest.JS
-- Swagger
-- Jest
+   This would act as a middleware between the client applications and the log storage systems.
 
-**Tests**
+2. **Authentication and Authorization**:
 
-The application is developed following a test-driven approach. Jest is used as the testing framework to write unit tests for various modules and components of the application.
+   Implement a robust authentication and authorization mechanism to ensure that only authorized users can access the logger service API and perform log-related operations. This can be achieved by using techniques such as API keys, JWT tokens, or OAuth.
 
-**NPM Scripts**
+3. **Log Storage Systems**:
 
-- `start`: Starts the server in production mode.
-- `dev`: Starts the server in development mode with auto-reloading.
-- `test`: Runs all the tests using Jest.
+   a. **AWS CloudWatch**:
+      Configure the necessary AWS credentials and use the AWS SDK to send the logs to CloudWatch. This ensures that logs are securely stored in a scalable and managed environment.
 
-**Linters**
+   b. **Local File System**:
+      Provide an option to save logs to a local file system.
 
-ESLint and Prettier are used as linters to maintain code quality and consistency.
+4. **Logging Library**:
 
+   Develop a client library or SDK that can be integrated into client applications to easily send logs to the Logger Service API. The library should handle log formatting, authentication, and log transport logic.
