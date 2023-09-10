@@ -1,0 +1,8 @@
+', async () => {
+      const result = 'Hello World!';
+      jest.spyOn(appService, 'getHello').mockResolvedValue(result);
+
+      expect(await appController.getHello()).toBe(result);
+    });
+  });
+});
