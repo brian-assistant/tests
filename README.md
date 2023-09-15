@@ -23,3 +23,9 @@ The application is developed following a test-driven approach. Jest is used as t
 
 ESLint and Prettier are used as linters to maintain code quality and consistency.
 
+---
+
+Implement the following changes:
+- Start a new web application project
+- Use Nuxt.js, Firebase Functions, Firebase Auth, TypeScript, and tests.
+- Create the necessary files and their content for the project.
